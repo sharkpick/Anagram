@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Anagram Generator</title>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" href="/stylesheets/style.css">
+        <script defer type="text/javascript" src="/scripts/index.js"></script>
+    </head>
+    <body>
+        <div class="topnav">
+            <a class="active" href="/">Anagram Maker</a>
+            <a href="/about.html">About</a>
+            <a href="/otherprojects.html">Other Projects</a>
+        </div>
+        <h1>Anagram Generator</h1>
+        <div id="anagram_results" class="results_tables"></div>
+        <p>
+            Type a word in the form below and click "Submit" to proceed. If desired, select "Partial Anagrams" to include partial matches.
+        </p>
+        <form id="anagram_input">
+            <input type="text" name="anagram_input" id="anagram_input" placeholder="Type A Word Here" autocomplete="on" required/><br>
+            <input type="checkbox" name="include_partial" id="include_partial"/>
+            <label for="include_partial">Include Partial Matches</label><br>
+            <input type="submit"  value="Submit" id="anagram_submit"/>
+        </form>
+    </body>
+</html>

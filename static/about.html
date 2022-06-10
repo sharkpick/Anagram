@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Anagram Generator</title>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" href="/stylesheets/style.css">
+    </head>
+    <body>
+        <div class="topnav">
+            <a href="/">Anagram Maker</a>
+            <a class="active" href="/about.html">About</a>
+            <a href="/otherprojects.html">Other Projects</a>
+        </div>
+        <h1>About This Project</h1>
+        <div id="about_body" class="about_information">
+            <p>
+                This project is a simple anagram maker. It can either look for 
+                "straight" anagrams (anagrams containing exactly the same set
+                of characters) or can include partial matches, which looks at
+                all permutations of the inputted word to find any possible anagram,
+                regardless of how many characters it has.
+            </p>
+            <p>
+                Here's how it works:
+                <ul>
+                    <li>
+                        On launch our server (written in Go) will read a dictionary
+                        file. The dictionary file is our local shared dictionary file
+                        (/usr/share/dict/words on ubuntu).
+                    </li>
+                    <li>
+                        The dictionary file is parsed into valid words (here we exclude
+                        words with any characters that aren't a-z or A-Z). The words 
+                        are split and sorted, and a map is constructed linking these 
+                        sorted strings to slices of matches (simple strings). The slices
+                        are kept sorted for convenience.
+                    </li>
+                    <li>
+                        The server also has a handler that accepts input from the form on
+                        index.html. It takes a word to search and an option, then returns
+                        a .json representation of the results, grouped by word length.
+                    </li>
+                    <li>
+                        The rest is written in HTML/javascript with some CSS to make it 
+                        look nice. The form on index.html calls a javascript function to
+                        check with the server for results. Results are presented on the 
+                        index page above the form, sorted by word length.
+                    </li>
+                    <li>
+                        The function who controls this clears the body before running 
+                        each time so that the results don't stack up.
+                    </li>
+                </ul>
+            </p>
+        </div>
+
+    </body>
+</html>
